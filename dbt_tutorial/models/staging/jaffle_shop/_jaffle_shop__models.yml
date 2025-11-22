@@ -111,3 +111,23 @@ models:
       - name: is_perishable_supply
         data_tests:
           - not_null
+
+  - name: stg_jaffle_shop__products
+    columns:
+      - name: product_id
+        data_tests:
+          - not_null
+          - unique
+
+      - name: product_name
+        data_tests:
+          - not_null
+
+      - name: product_type
+        data_tests:
+          - accepted_values:
+              values: [jaffle, beverage]
+
+      - name: product_price
+        data_tests:
+          - not_null
