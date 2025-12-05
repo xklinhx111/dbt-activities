@@ -4,6 +4,12 @@ with orders as (
 
 ),
 
+order_items as (
+
+    select * from {{ ref("stg_jaffle_shop__order_items") }}
+
+),
+
 stores as (
 
     select * from {{ ref("stg_jaffle_shop__stores") }}
@@ -16,6 +22,17 @@ dates as (
 
 ),
 
+order_items_aggregated as (
+
+    select
+        order_id,
+        count(*) as items_sold
+
+    from order_items
+
+    group by 1
+
+),
 
 store_performance as (
 
@@ -23,9 +40,13 @@ store_performance as (
         store_id,
         ordered_at as date_day,
         count(*) as order_count,
+        sum(order_items_aggregated.items_sold) as items_sold,
         sum(total_amount) as revenue
 
     from orders
+
+    left join order_items_aggregated on
+        orders.order_id = order_items_aggregated.order_id
 
     group by 1, 2
 
@@ -38,6 +59,7 @@ final as (
         stores.store_id,
         stores.store_name,
         coalesce(store_performance.order_count, 0) as order_count,
+        coalesce(store_performance.items_sold, 0) as items_sold,
         coalesce(store_performance.revenue, 0) as revenue
 
     from dates
