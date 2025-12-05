@@ -22,7 +22,8 @@ store_performance as (
     select
         store_id,
         ordered_at as date_day,
-        count(*) as order_count
+        count(*) as order_count,
+        sum(total_amount) as revenue
 
     from orders
 
@@ -36,7 +37,8 @@ final as (
         dates.date_day,
         stores.store_id,
         stores.store_name,
-        coalesce(store_performance.order_count, 0) as order_count
+        coalesce(store_performance.order_count, 0) as order_count,
+        coalesce(store_performance.revenue, 0) as revenue
 
     from dates
 
