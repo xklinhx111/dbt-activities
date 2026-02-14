@@ -1,5 +1,20 @@
 # dbt Activities
 
+## Introduction
+This set of exercises is designed to guide you through the process of setting up and using dbt (data build tool) with a Google Cloud data warehouse. You will work with an e-commerce dataset from a fictional company called Jaffle Shop to learn how to manage data sources, create staging models, add data tests, and perform analysis.
+
+## Learning Objectives
+- Set up a Google Cloud project and configure service accounts with appropriate permissions.
+- Initialize and configure a dbt project connected to your data warehouse.
+- Load raw data using dbt seeds and declare sources.
+- Create and manage staging models to clean and transform raw data.
+- Use version control with git, including branching, committing, and creating pull requests.
+- Add data tests to ensure data quality.
+- Develop marts models and analysis files to answer business questions.
+- Understand best practices for dbt project structure and workflow.
+
+---
+
 1. Create a new Google Cloud Project named `dbt-tutorial`.
 
 2. Create a service account for dbt with the appropriate permissions.
