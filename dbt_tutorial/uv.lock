@@ -1,0 +1,29 @@
+version = 1
+revision = 3
+requires-python = ">=3.13"
+
+[options]
+prerelease-mode = "allow"
+
+[[package]]
+name = "dbt-core"
+version = "2.0.0a1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/00/ab67145bcfb7ac433358dc8747a41cff8613ad8ad0c770e648bed862f7ea/dbt_core-2.0.0a1-py3-none-macosx_10_12_x86_64.whl", hash = "sha256:4e21f6bb35314af115704b1cb81bee33ad36087ec1db7b2c39dacfaa27bb2bef", size = 48081724, upload-time = "2026-06-01T05:05:20.925Z" },
+    { url = "https://files.pythonhosted.org/packages/b1/31/ad986f597d2b14e97ce492865913d4b808cd04530eda28f4d72687041ea8/dbt_core-2.0.0a1-py3-none-macosx_11_0_arm64.whl", hash = "sha256:824eb4f08a86e2b1368f846c58f6fe460dc62e90f228234a876a78b5da372b93", size = 43557182, upload-time = "2026-06-01T05:05:23.967Z" },
+    { url = "https://files.pythonhosted.org/packages/a2/09/98c49997eed89f19ac3316a394d69a332b9eb55ec06d8fc0cc7c3e48531f/dbt_core-2.0.0a1-py3-none-manylinux_2_28_aarch64.whl", hash = "sha256:10c0b7fa85f0e329b68d853b8d95c160c8bd185e151e528244abf7ec55e240c9", size = 44516596, upload-time = "2026-06-01T05:05:26.883Z" },
+    { url = "https://files.pythonhosted.org/packages/06/02/983e8f593a1a5e656914860807c063ee75b38f9d07c7bcc3cdf93a9290d6/dbt_core-2.0.0a1-py3-none-manylinux_2_28_x86_64.whl", hash = "sha256:cc2b98a0631cf7f1d43683d08fe0e096824b3ffe7aef82b0a474d0ff1f703c9e", size = 48403958, upload-time = "2026-06-01T05:05:29.295Z" },
+    { url = "https://files.pythonhosted.org/packages/00/bd/7b57a7d4899b0ec798070c9aa368670f21a40b2be64f620f5f6c5ae24140/dbt_core-2.0.0a1-py3-none-win_amd64.whl", hash = "sha256:0a6d03060c1c038fd989f6befa6687767ff47d1144ce8086691be690bf078328", size = 53928063, upload-time = "2026-06-01T05:05:32.028Z" },
+]
+
+[[package]]
+name = "dbt-tutorial"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "dbt-core" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "dbt-core", specifier = ">=2.0.0a1" }]
